@@ -1,0 +1,10 @@
+C:\Users\gvnnp\Desktop\C#\Cubetti\Cubetti\bin\Debug\Cubetti.exe.config
+C:\Users\gvnnp\Desktop\C#\Cubetti\Cubetti\bin\Debug\Cubetti.exe
+C:\Users\gvnnp\Desktop\C#\Cubetti\Cubetti\bin\Debug\Cubetti.pdb
+C:\Users\gvnnp\Desktop\C#\Cubetti\Cubetti\obj\Debug\Cubetti.csproj.AssemblyReference.cache
+C:\Users\gvnnp\Desktop\C#\Cubetti\Cubetti\obj\Debug\Cubetti.Form1.resources
+C:\Users\gvnnp\Desktop\C#\Cubetti\Cubetti\obj\Debug\Cubetti.Properties.Resources.resources
+C:\Users\gvnnp\Desktop\C#\Cubetti\Cubetti\obj\Debug\Cubetti.csproj.GenerateResource.cache
+C:\Users\gvnnp\Desktop\C#\Cubetti\Cubetti\obj\Debug\Cubetti.csproj.CoreCompileInputs.cache
+C:\Users\gvnnp\Desktop\C#\Cubetti\Cubetti\obj\Debug\Cubetti.exe
+C:\Users\gvnnp\Desktop\C#\Cubetti\Cubetti\obj\Debug\Cubetti.pdb
