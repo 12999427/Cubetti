@@ -29,15 +29,26 @@
         private void InitializeComponent()
         {
             this.pnl_main = new System.Windows.Forms.Panel();
-            this.lbl_score = new System.Windows.Forms.Label();
+            this.lbl_score_gargamella = new System.Windows.Forms.Label();
+            this.controlli_gargamella = new System.Windows.Forms.TableLayoutPanel();
+            this.btn_left_gargamella = new System.Windows.Forms.Button();
+            this.btn_up_gargamella = new System.Windows.Forms.Button();
+            this.btn_right_gargamella = new System.Windows.Forms.Button();
+            this.btn_down_gargamella = new System.Windows.Forms.Button();
+            this.controlli_puffo = new System.Windows.Forms.TableLayoutPanel();
+            this.btn_left_puffo = new System.Windows.Forms.Button();
+            this.btn_up_puffo = new System.Windows.Forms.Button();
+            this.btn_right_puffo = new System.Windows.Forms.Button();
+            this.btn_down_puffo = new System.Windows.Forms.Button();
+            this.lbl_score_puffo = new System.Windows.Forms.Label();
             this.pnl_game = new System.Windows.Forms.Panel();
-            this.pnl_wall = new System.Windows.Forms.Panel();
+            this.pnl_gargamella = new System.Windows.Forms.Panel();
+            this.pnl_casetta = new System.Windows.Forms.Panel();
             this.pnl_player = new System.Windows.Forms.Panel();
-            this.btn_left = new System.Windows.Forms.Button();
-            this.btn_right = new System.Windows.Forms.Button();
-            this.btn_down = new System.Windows.Forms.Button();
-            this.btn_up = new System.Windows.Forms.Button();
+            this.pnl_albero = new System.Windows.Forms.Panel();
             this.pnl_main.SuspendLayout();
+            this.controlli_gargamella.SuspendLayout();
+            this.controlli_puffo.SuspendLayout();
             this.pnl_game.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,106 +57,228 @@
             this.pnl_main.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnl_main.Controls.Add(this.lbl_score);
+            this.pnl_main.Controls.Add(this.lbl_score_gargamella);
+            this.pnl_main.Controls.Add(this.controlli_gargamella);
+            this.pnl_main.Controls.Add(this.controlli_puffo);
+            this.pnl_main.Controls.Add(this.lbl_score_puffo);
             this.pnl_main.Controls.Add(this.pnl_game);
-            this.pnl_main.Controls.Add(this.btn_left);
-            this.pnl_main.Controls.Add(this.btn_right);
-            this.pnl_main.Controls.Add(this.btn_down);
-            this.pnl_main.Controls.Add(this.btn_up);
             this.pnl_main.Location = new System.Drawing.Point(12, 12);
             this.pnl_main.Name = "pnl_main";
-            this.pnl_main.Size = new System.Drawing.Size(780, 415);
+            this.pnl_main.Size = new System.Drawing.Size(920, 453);
             this.pnl_main.TabIndex = 0;
             // 
-            // lbl_score
+            // lbl_score_gargamella
             // 
-            this.lbl_score.Font = new System.Drawing.Font("Ink Free", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_score.Location = new System.Drawing.Point(425, 15);
-            this.lbl_score.Name = "lbl_score";
-            this.lbl_score.Size = new System.Drawing.Size(338, 38);
-            this.lbl_score.TabIndex = 5;
-            this.lbl_score.Text = "PUNTEGGIO: 0";
-            this.lbl_score.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lbl_score_gargamella.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_score_gargamella.Font = new System.Drawing.Font("Ink Free", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_score_gargamella.Location = new System.Drawing.Point(737, 0);
+            this.lbl_score_gargamella.Name = "lbl_score_gargamella";
+            this.lbl_score_gargamella.Size = new System.Drawing.Size(192, 79);
+            this.lbl_score_gargamella.TabIndex = 8;
+            this.lbl_score_gargamella.Text = "PUNTEGGIO: 0";
+            this.lbl_score_gargamella.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // controlli_gargamella
+            // 
+            this.controlli_gargamella.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.controlli_gargamella.ColumnCount = 3;
+            this.controlli_gargamella.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.controlli_gargamella.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.controlli_gargamella.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.controlli_gargamella.Controls.Add(this.btn_left_gargamella, 0, 1);
+            this.controlli_gargamella.Controls.Add(this.btn_up_gargamella, 1, 0);
+            this.controlli_gargamella.Controls.Add(this.btn_right_gargamella, 2, 1);
+            this.controlli_gargamella.Controls.Add(this.btn_down_gargamella, 1, 2);
+            this.controlli_gargamella.Location = new System.Drawing.Point(737, 118);
+            this.controlli_gargamella.Name = "controlli_gargamella";
+            this.controlli_gargamella.RowCount = 3;
+            this.controlli_gargamella.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.controlli_gargamella.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.controlli_gargamella.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.controlli_gargamella.Size = new System.Drawing.Size(180, 204);
+            this.controlli_gargamella.TabIndex = 7;
+            // 
+            // btn_left_gargamella
+            // 
+            this.btn_left_gargamella.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_left_gargamella.Location = new System.Drawing.Point(3, 71);
+            this.btn_left_gargamella.Name = "btn_left_gargamella";
+            this.btn_left_gargamella.Size = new System.Drawing.Size(54, 48);
+            this.btn_left_gargamella.TabIndex = 1;
+            this.btn_left_gargamella.Text = "<";
+            this.btn_left_gargamella.UseVisualStyleBackColor = true;
+            this.btn_left_gargamella.Click += new System.EventHandler(this.btn_left_gargamella_Click);
+            // 
+            // btn_up_gargamella
+            // 
+            this.btn_up_gargamella.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_up_gargamella.Location = new System.Drawing.Point(63, 3);
+            this.btn_up_gargamella.Name = "btn_up_gargamella";
+            this.btn_up_gargamella.Size = new System.Drawing.Size(54, 48);
+            this.btn_up_gargamella.TabIndex = 0;
+            this.btn_up_gargamella.Text = "^";
+            this.btn_up_gargamella.UseVisualStyleBackColor = true;
+            this.btn_up_gargamella.Click += new System.EventHandler(this.btn_up_gargamella_Click);
+            // 
+            // btn_right_gargamella
+            // 
+            this.btn_right_gargamella.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_right_gargamella.Location = new System.Drawing.Point(123, 71);
+            this.btn_right_gargamella.Name = "btn_right_gargamella";
+            this.btn_right_gargamella.Size = new System.Drawing.Size(54, 48);
+            this.btn_right_gargamella.TabIndex = 2;
+            this.btn_right_gargamella.Text = ">";
+            this.btn_right_gargamella.UseVisualStyleBackColor = true;
+            this.btn_right_gargamella.Click += new System.EventHandler(this.bhtn_right_gargamella_Click);
+            // 
+            // btn_down_gargamella
+            // 
+            this.btn_down_gargamella.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_down_gargamella.Location = new System.Drawing.Point(63, 139);
+            this.btn_down_gargamella.Name = "btn_down_gargamella";
+            this.btn_down_gargamella.Size = new System.Drawing.Size(54, 48);
+            this.btn_down_gargamella.TabIndex = 3;
+            this.btn_down_gargamella.Text = "v";
+            this.btn_down_gargamella.UseVisualStyleBackColor = true;
+            this.btn_down_gargamella.Click += new System.EventHandler(this.btn_down_gargamella_Click);
+            // 
+            // controlli_puffo
+            // 
+            this.controlli_puffo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.controlli_puffo.ColumnCount = 3;
+            this.controlli_puffo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.controlli_puffo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.controlli_puffo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.controlli_puffo.Controls.Add(this.btn_left_puffo, 0, 1);
+            this.controlli_puffo.Controls.Add(this.btn_up_puffo, 1, 0);
+            this.controlli_puffo.Controls.Add(this.btn_right_puffo, 2, 1);
+            this.controlli_puffo.Controls.Add(this.btn_down_puffo, 1, 2);
+            this.controlli_puffo.Location = new System.Drawing.Point(3, 127);
+            this.controlli_puffo.Name = "controlli_puffo";
+            this.controlli_puffo.RowCount = 3;
+            this.controlli_puffo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.controlli_puffo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.controlli_puffo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.controlli_puffo.Size = new System.Drawing.Size(180, 204);
+            this.controlli_puffo.TabIndex = 6;
+            // 
+            // btn_left_puffo
+            // 
+            this.btn_left_puffo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_left_puffo.Location = new System.Drawing.Point(3, 71);
+            this.btn_left_puffo.Name = "btn_left_puffo";
+            this.btn_left_puffo.Size = new System.Drawing.Size(54, 48);
+            this.btn_left_puffo.TabIndex = 1;
+            this.btn_left_puffo.Text = "<";
+            this.btn_left_puffo.UseVisualStyleBackColor = true;
+            this.btn_left_puffo.Click += new System.EventHandler(this.btn_left_Click);
+            // 
+            // btn_up_puffo
+            // 
+            this.btn_up_puffo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_up_puffo.Location = new System.Drawing.Point(63, 3);
+            this.btn_up_puffo.Name = "btn_up_puffo";
+            this.btn_up_puffo.Size = new System.Drawing.Size(54, 48);
+            this.btn_up_puffo.TabIndex = 0;
+            this.btn_up_puffo.Text = "^";
+            this.btn_up_puffo.UseVisualStyleBackColor = true;
+            this.btn_up_puffo.Click += new System.EventHandler(this.btn_up_Click);
+            // 
+            // btn_right_puffo
+            // 
+            this.btn_right_puffo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_right_puffo.Location = new System.Drawing.Point(123, 71);
+            this.btn_right_puffo.Name = "btn_right_puffo";
+            this.btn_right_puffo.Size = new System.Drawing.Size(54, 48);
+            this.btn_right_puffo.TabIndex = 2;
+            this.btn_right_puffo.Text = ">";
+            this.btn_right_puffo.UseVisualStyleBackColor = true;
+            this.btn_right_puffo.Click += new System.EventHandler(this.btn_right_Click);
+            // 
+            // btn_down_puffo
+            // 
+            this.btn_down_puffo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_down_puffo.Location = new System.Drawing.Point(63, 139);
+            this.btn_down_puffo.Name = "btn_down_puffo";
+            this.btn_down_puffo.Size = new System.Drawing.Size(54, 48);
+            this.btn_down_puffo.TabIndex = 3;
+            this.btn_down_puffo.Text = "v";
+            this.btn_down_puffo.UseVisualStyleBackColor = true;
+            this.btn_down_puffo.Click += new System.EventHandler(this.btn_down_Click);
+            // 
+            // lbl_score_puffo
+            // 
+            this.lbl_score_puffo.Font = new System.Drawing.Font("Ink Free", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_score_puffo.Location = new System.Drawing.Point(0, 0);
+            this.lbl_score_puffo.Name = "lbl_score_puffo";
+            this.lbl_score_puffo.Size = new System.Drawing.Size(182, 91);
+            this.lbl_score_puffo.TabIndex = 5;
+            this.lbl_score_puffo.Text = "PUNTEGGIO: 0";
+            this.lbl_score_puffo.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // pnl_game
             // 
-            this.pnl_game.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pnl_game.Controls.Add(this.pnl_wall);
+            this.pnl_game.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pnl_game.BackColor = System.Drawing.Color.Tan;
+            this.pnl_game.Controls.Add(this.pnl_albero);
+            this.pnl_game.Controls.Add(this.pnl_gargamella);
+            this.pnl_game.Controls.Add(this.pnl_casetta);
             this.pnl_game.Controls.Add(this.pnl_player);
-            this.pnl_game.Location = new System.Drawing.Point(3, 3);
+            this.pnl_game.Location = new System.Drawing.Point(190, 3);
             this.pnl_game.Name = "pnl_game";
-            this.pnl_game.Size = new System.Drawing.Size(400, 400);
+            this.pnl_game.Size = new System.Drawing.Size(540, 432);
             this.pnl_game.TabIndex = 4;
             // 
-            // pnl_wall
+            // pnl_gargamella
             // 
-            this.pnl_wall.BackColor = System.Drawing.Color.IndianRed;
-            this.pnl_wall.Location = new System.Drawing.Point(150, 50);
-            this.pnl_wall.Name = "pnl_wall";
-            this.pnl_wall.Size = new System.Drawing.Size(50, 50);
-            this.pnl_wall.TabIndex = 1;
+            this.pnl_gargamella.BackColor = System.Drawing.SystemColors.InfoText;
+            this.pnl_gargamella.Location = new System.Drawing.Point(72, 144);
+            this.pnl_gargamella.Name = "pnl_gargamella";
+            this.pnl_gargamella.Size = new System.Drawing.Size(36, 36);
+            this.pnl_gargamella.TabIndex = 1;
+            this.pnl_gargamella.Tag = "PLAYER";
+            // 
+            // pnl_casetta
+            // 
+            this.pnl_casetta.BackColor = System.Drawing.Color.IndianRed;
+            this.pnl_casetta.Location = new System.Drawing.Point(108, 36);
+            this.pnl_casetta.Name = "pnl_casetta";
+            this.pnl_casetta.Size = new System.Drawing.Size(36, 36);
+            this.pnl_casetta.TabIndex = 1;
+            this.pnl_casetta.Tag = "CASETTA";
             // 
             // pnl_player
             // 
             this.pnl_player.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.pnl_player.Location = new System.Drawing.Point(50, 50);
+            this.pnl_player.Location = new System.Drawing.Point(36, 36);
             this.pnl_player.Name = "pnl_player";
-            this.pnl_player.Size = new System.Drawing.Size(50, 50);
+            this.pnl_player.Size = new System.Drawing.Size(36, 36);
             this.pnl_player.TabIndex = 0;
+            this.pnl_player.Tag = "";
             // 
-            // btn_left
+            // pnl_albero
             // 
-            this.btn_left.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_left.Location = new System.Drawing.Point(523, 182);
-            this.btn_left.Name = "btn_left";
-            this.btn_left.Size = new System.Drawing.Size(57, 48);
-            this.btn_left.TabIndex = 1;
-            this.btn_left.Text = "<";
-            this.btn_left.UseVisualStyleBackColor = true;
-            this.btn_left.Click += new System.EventHandler(this.btn_left_Click);
-            // 
-            // btn_right
-            // 
-            this.btn_right.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_right.Location = new System.Drawing.Point(625, 182);
-            this.btn_right.Name = "btn_right";
-            this.btn_right.Size = new System.Drawing.Size(57, 48);
-            this.btn_right.TabIndex = 2;
-            this.btn_right.Text = ">";
-            this.btn_right.UseVisualStyleBackColor = true;
-            this.btn_right.Click += new System.EventHandler(this.btn_right_Click);
-            // 
-            // btn_down
-            // 
-            this.btn_down.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_down.Location = new System.Drawing.Point(573, 236);
-            this.btn_down.Name = "btn_down";
-            this.btn_down.Size = new System.Drawing.Size(57, 48);
-            this.btn_down.TabIndex = 3;
-            this.btn_down.Text = "v";
-            this.btn_down.UseVisualStyleBackColor = true;
-            this.btn_down.Click += new System.EventHandler(this.btn_down_Click);
-            // 
-            // btn_up
-            // 
-            this.btn_up.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_up.Location = new System.Drawing.Point(573, 128);
-            this.btn_up.Name = "btn_up";
-            this.btn_up.Size = new System.Drawing.Size(57, 48);
-            this.btn_up.TabIndex = 0;
-            this.btn_up.Text = "^";
-            this.btn_up.UseVisualStyleBackColor = true;
-            this.btn_up.Click += new System.EventHandler(this.btn_up_Click);
+            this.pnl_albero.BackColor = System.Drawing.Color.DarkGreen;
+            this.pnl_albero.Location = new System.Drawing.Point(316, 263);
+            this.pnl_albero.Name = "pnl_albero";
+            this.pnl_albero.Size = new System.Drawing.Size(36, 36);
+            this.pnl_albero.TabIndex = 2;
+            this.pnl_albero.Tag = "ALBERO";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(804, 439);
+            this.ClientSize = new System.Drawing.Size(944, 477);
             this.Controls.Add(this.pnl_main);
+            this.MinimumSize = new System.Drawing.Size(960, 516);
             this.Name = "Form1";
             this.Text = "Form1";
             this.pnl_main.ResumeLayout(false);
+            this.controlli_gargamella.ResumeLayout(false);
+            this.controlli_puffo.ResumeLayout(false);
             this.pnl_game.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -154,14 +287,23 @@
         #endregion
 
         private System.Windows.Forms.Panel pnl_main;
-        private System.Windows.Forms.Button btn_left;
-        private System.Windows.Forms.Button btn_right;
-        private System.Windows.Forms.Button btn_down;
-        private System.Windows.Forms.Button btn_up;
+        private System.Windows.Forms.Button btn_left_puffo;
+        private System.Windows.Forms.Button btn_right_puffo;
+        private System.Windows.Forms.Button btn_down_puffo;
+        private System.Windows.Forms.Button btn_up_puffo;
         private System.Windows.Forms.Panel pnl_game;
-        private System.Windows.Forms.Label lbl_score;
+        private System.Windows.Forms.Label lbl_score_puffo;
         private System.Windows.Forms.Panel pnl_player;
-        private System.Windows.Forms.Panel pnl_wall;
+        private System.Windows.Forms.Panel pnl_casetta;
+        private System.Windows.Forms.TableLayoutPanel controlli_puffo;
+        private System.Windows.Forms.TableLayoutPanel controlli_gargamella;
+        private System.Windows.Forms.Button btn_left_gargamella;
+        private System.Windows.Forms.Button btn_up_gargamella;
+        private System.Windows.Forms.Button btn_right_gargamella;
+        private System.Windows.Forms.Button btn_down_gargamella;
+        private System.Windows.Forms.Label lbl_score_gargamella;
+        private System.Windows.Forms.Panel pnl_gargamella;
+        private System.Windows.Forms.Panel pnl_albero;
     }
 }
 
