@@ -23,10 +23,13 @@ namespace Cubetti //TODO: USARE LE STRUCT E REF MEGLIO (?)
         int score_puffo = 0;
         int score_gargamella = 0;
         Random rand = new Random(Environment.TickCount);
+        bool turno_gargamella = false;
+        int mosseRimanenti = 4;
         public Form1()
         {
             InitializeComponent();
-            oggetti = new Panel[] { pnl_casetta, pnl_gargamella, pnl_player, pnl_albero }; //tutti gli oggetti (le collsioni le filtro dopo in base a .Tag)
+            illuminaPunteggio();
+            oggetti = new Panel[] { pnl_casetta, pnl_gargamella, pnl_player, pnl_albero1, pnl_albero2, pnl_albero3, pnl_albero4, pnl_albero5, pnl_albero6, pnl_albero7, pnl_albero8, pnl_albero9, pnl_albero10 }; //tutti gli oggetti (le collsioni le filtro dopo in base a .Tag)
             spostaAlberi();
         }
 
@@ -35,18 +38,43 @@ namespace Cubetti //TODO: USARE LE STRUCT E REF MEGLIO (?)
             if (target == pnl_player)
             {
                 score_puffo += delta;
-                lbl_score_puffo.Text = "PUNTEGGIO: " + score_puffo;
+                lbl_score_puffo.Text = "PUFFO PUNTEGGIO: " + score_puffo;
             }
             else if (target == pnl_gargamella)
             {
                 score_gargamella += delta;
-                lbl_score_gargamella.Text = "PUNTEGGIO: " + score_gargamella;
+                lbl_score_gargamella.Text = "GARGAMELLA PUNTEGGIO: " + score_gargamella;
+            }
+        }
+
+        private void illuminaPunteggio()
+        {
+            if (turno_gargamella)
+            {
+                lbl_score_gargamella.BackColor = Color.Yellow;
+                lbl_score_puffo.BackColor = Color.White;
+            }
+            else
+            {
+                lbl_score_puffo.BackColor = Color.Yellow;
+                lbl_score_gargamella.BackColor = Color.White;
             }
         }
 
         private void sposta(int dx, int dy, Panel target)
         {
+            if ((target == pnl_player && turno_gargamella) || (target == pnl_gargamella && !turno_gargamella))
+            {
+                return;
+            }
             target.Location = new Point(spostaX(dx, target), spostaY(dy, target));
+            mosseRimanenti--;
+            if (mosseRimanenti == 0)
+            {
+                turno_gargamella = !turno_gargamella;
+                mosseRimanenti = 4;
+                illuminaPunteggio();
+            }
         }
 
         private void spostaAlberi()
@@ -55,7 +83,15 @@ namespace Cubetti //TODO: USARE LE STRUCT E REF MEGLIO (?)
             {
                 if ((string)oggetto.Tag == "ALBERO")
                 {
-                    generaPosizioneValida(oggetto, false);
+                    oggetto.Tag = "ALBERODAPOSIZIONARE";
+                }
+            }
+            foreach (Panel oggetto in oggetti)
+            {
+                if ((string)oggetto.Tag == "ALBERODAPOSIZIONARE")
+                {
+                    generaPosizioneValida(oggetto, true);
+                    oggetto.Tag = "ALBERO";
                 }
             }
         }
@@ -139,6 +175,14 @@ namespace Cubetti //TODO: USARE LE STRUCT E REF MEGLIO (?)
             {
                 generaPosizioneValida(pnl_player, true);
                 aggiornaPunteggio(+1, pnl_gargamella);
+                aggiornaPunteggio(-1, pnl_player);
+            }
+            else if ((target == pnl_gargamella || target == pnl_player) && (string)collision.Tag == "ALBERO")
+            {
+                turno_gargamella = !turno_gargamella;
+                mosseRimanenti = 4;
+                illuminaPunteggio();
+                return true;
             }
 
             return true;
@@ -151,7 +195,7 @@ namespace Cubetti //TODO: USARE LE STRUCT E REF MEGLIO (?)
             do
             {
                 punto = new Point((int)(rand.NextDouble() * (pnl_game.Width - obj.Width)), (int)(rand.NextDouble() * (pnl_game.Height - obj.Height)));
-            } while (checkTrees || checkTreesCollisions(obj, punto));
+            } while (checkTrees && (checkTreesCollisions(obj, punto) || checkOtherCollisions(obj, punto)));
 
             obj.Location = punto;
         }
@@ -171,26 +215,41 @@ namespace Cubetti //TODO: USARE LE STRUCT E REF MEGLIO (?)
             return false;
         }
 
+        private bool checkOtherCollisions(Panel obj, Point xy)
+        {
+            foreach (Panel oggetto in oggetti)
+            {
+                if ((string)oggetto.Tag == "PLAYER" || (string)oggetto.Tag == "GARGAMELLA" || (string)oggetto.Tag == "CASETTA")
+                {
+                    if (checkCollision(obj, oggetto, xy.X, xy.Y))
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
         #region RiceviClick
 
         private void btn_left_Click(object sender, EventArgs e)
         {
-            sposta(-25, 0, pnl_player);
+            sposta(-18, 0, pnl_player);
         }
 
         private void btn_down_Click(object sender, EventArgs e)
         {
-            sposta(0, 25, pnl_player);
+            sposta(0, 18, pnl_player);
         }
 
         private void btn_up_Click(object sender, EventArgs e)
         {
-            sposta(0, -25, pnl_player);
+            sposta(0, -18, pnl_player);
         }
 
         private void btn_right_Click(object sender, EventArgs e)
         {
-            sposta(25, 0, pnl_player);
+            sposta(18, 0, pnl_player);
         }
 
         private void btn_up_gargamella_Click(object sender, EventArgs e)
@@ -214,5 +273,6 @@ namespace Cubetti //TODO: USARE LE STRUCT E REF MEGLIO (?)
         }
 
         #endregion
+
     }
 }
