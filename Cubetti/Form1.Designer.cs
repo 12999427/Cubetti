@@ -182,7 +182,7 @@
             this.btn_left_puffo.TabIndex = 1;
             this.btn_left_puffo.Text = "<";
             this.btn_left_puffo.UseVisualStyleBackColor = true;
-            this.btn_left_puffo.Click += new System.EventHandler(this.btn_left_Click);
+            this.btn_left_puffo.Click += new System.EventHandler(this.btn_left_puffo_Click);
             // 
             // btn_up_puffo
             // 
@@ -193,7 +193,7 @@
             this.btn_up_puffo.TabIndex = 0;
             this.btn_up_puffo.Text = "^";
             this.btn_up_puffo.UseVisualStyleBackColor = true;
-            this.btn_up_puffo.Click += new System.EventHandler(this.btn_up_Click);
+            this.btn_up_puffo.Click += new System.EventHandler(this.btn_up_puffo_Click);
             // 
             // btn_right_puffo
             // 
@@ -204,7 +204,7 @@
             this.btn_right_puffo.TabIndex = 2;
             this.btn_right_puffo.Text = ">";
             this.btn_right_puffo.UseVisualStyleBackColor = true;
-            this.btn_right_puffo.Click += new System.EventHandler(this.btn_right_Click);
+            this.btn_right_puffo.Click += new System.EventHandler(this.btn_right_puffo_Click);
             // 
             // btn_down_puffo
             // 
@@ -215,7 +215,7 @@
             this.btn_down_puffo.TabIndex = 3;
             this.btn_down_puffo.Text = "v";
             this.btn_down_puffo.UseVisualStyleBackColor = true;
-            this.btn_down_puffo.Click += new System.EventHandler(this.btn_down_Click);
+            this.btn_down_puffo.Click += new System.EventHandler(this.btn_down_puffo_Click);
             // 
             // lbl_score_puffo
             // 
@@ -401,6 +401,7 @@
             this.MinimumSize = new System.Drawing.Size(960, 516);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.pnl_main.ResumeLayout(false);
             this.controlli_gargamella.ResumeLayout(false);
             this.controlli_puffo.ResumeLayout(false);

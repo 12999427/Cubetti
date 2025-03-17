@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Cubetti //TODO: USARE LE STRUCT E REF MEGLIO (?)
+namespace Cubetti //TODO: USARE WASD E IJKL x muovere
 {
     /*
     struct Punto //equivalente a Point ma uso Point perchè Location è un Point
@@ -24,7 +24,8 @@ namespace Cubetti //TODO: USARE LE STRUCT E REF MEGLIO (?)
         int score_gargamella = 0;
         Random rand = new Random(Environment.TickCount);
         bool turno_gargamella = false;
-        int mosseRimanenti = 4;
+        const int totMosse = 4;
+        int mosseRimanenti = totMosse;
         public Form1()
         {
             InitializeComponent();
@@ -61,7 +62,7 @@ namespace Cubetti //TODO: USARE LE STRUCT E REF MEGLIO (?)
             }
         }
 
-        private void sposta(int dx, int dy, Panel target)
+        private void sposta(int dx, int dy, Panel target) //qui volendo struct però
         {
             if ((target == pnl_player && turno_gargamella) || (target == pnl_gargamella && !turno_gargamella))
             {
@@ -72,7 +73,7 @@ namespace Cubetti //TODO: USARE LE STRUCT E REF MEGLIO (?)
             if (mosseRimanenti == 0)
             {
                 turno_gargamella = !turno_gargamella;
-                mosseRimanenti = 4;
+                mosseRimanenti = totMosse;
                 illuminaPunteggio();
             }
         }
@@ -132,7 +133,7 @@ namespace Cubetti //TODO: USARE LE STRUCT E REF MEGLIO (?)
             return pos;
         }
 
-        private bool checkCollision(Panel target, Panel obstacle, int x, int y)
+        private bool checkCollision(Panel target, Panel obstacle, int x, int y) //qui volendo struct
         {
             if ((x + target.Width > obstacle.Location.X) && (x < obstacle.Location.X + obstacle.Width))
             {
@@ -180,7 +181,7 @@ namespace Cubetti //TODO: USARE LE STRUCT E REF MEGLIO (?)
             else if ((target == pnl_gargamella || target == pnl_player) && (string)collision.Tag == "ALBERO")
             {
                 turno_gargamella = !turno_gargamella;
-                mosseRimanenti = 4;
+                mosseRimanenti = totMosse;
                 illuminaPunteggio();
                 return true;
             }
@@ -232,22 +233,22 @@ namespace Cubetti //TODO: USARE LE STRUCT E REF MEGLIO (?)
 
         #region RiceviClick
 
-        private void btn_left_Click(object sender, EventArgs e)
+        private void btn_left_puffo_Click(object sender, EventArgs e)
         {
             sposta(-18, 0, pnl_player);
         }
 
-        private void btn_down_Click(object sender, EventArgs e)
+        private void btn_down_puffo_Click(object sender, EventArgs e)
         {
             sposta(0, 18, pnl_player);
         }
 
-        private void btn_up_Click(object sender, EventArgs e)
+        private void btn_up_puffo_Click(object sender, EventArgs e)
         {
             sposta(0, -18, pnl_player);
         }
 
-        private void btn_right_Click(object sender, EventArgs e)
+        private void btn_right_puffo_Click(object sender, EventArgs e)
         {
             sposta(18, 0, pnl_player);
         }
@@ -274,5 +275,9 @@ namespace Cubetti //TODO: USARE LE STRUCT E REF MEGLIO (?)
 
         #endregion
 
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            //qui
+        }
     }
 }

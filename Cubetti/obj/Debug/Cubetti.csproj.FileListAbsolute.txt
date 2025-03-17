@@ -26,3 +26,14 @@ C:\Users\Sebastiano\Desktop\Cubetti-main\Cubetti\obj\Debug\Cubetti.csproj.Genera
 C:\Users\Sebastiano\Desktop\Cubetti-main\Cubetti\obj\Debug\Cubetti.csproj.CoreCompileInputs.cache
 C:\Users\Sebastiano\Desktop\Cubetti-main\Cubetti\obj\Debug\Cubetti.exe
 C:\Users\Sebastiano\Desktop\Cubetti-main\Cubetti\obj\Debug\Cubetti.pdb
+C:\Users\12999427\Downloads\Cubetti-main\Cubetti-main\Cubetti\bin\Debug\Cubetti.exe.config
+C:\Users\12999427\Downloads\Cubetti-main\Cubetti-main\Cubetti\bin\Debug\Cubetti.exe
+C:\Users\12999427\Downloads\Cubetti-main\Cubetti-main\Cubetti\bin\Debug\Cubetti.pdb
+C:\Users\12999427\Downloads\Cubetti-main\Cubetti-main\Cubetti\obj\Debug\Cubetti.csproj.AssemblyReference.cache
+C:\Users\12999427\Downloads\Cubetti-main\Cubetti-main\Cubetti\obj\Debug\Cubetti.csproj.SuggestedBindingRedirects.cache
+C:\Users\12999427\Downloads\Cubetti-main\Cubetti-main\Cubetti\obj\Debug\Cubetti.Form1.resources
+C:\Users\12999427\Downloads\Cubetti-main\Cubetti-main\Cubetti\obj\Debug\Cubetti.Properties.Resources.resources
+C:\Users\12999427\Downloads\Cubetti-main\Cubetti-main\Cubetti\obj\Debug\Cubetti.csproj.GenerateResource.cache
+C:\Users\12999427\Downloads\Cubetti-main\Cubetti-main\Cubetti\obj\Debug\Cubetti.csproj.CoreCompileInputs.cache
+C:\Users\12999427\Downloads\Cubetti-main\Cubetti-main\Cubetti\obj\Debug\Cubetti.exe
+C:\Users\12999427\Downloads\Cubetti-main\Cubetti-main\Cubetti\obj\Debug\Cubetti.pdb
