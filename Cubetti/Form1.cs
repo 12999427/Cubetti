@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Cubetti //TODO: USARE WASD E IJKL x muovere
+namespace Cubetti
 {
     /*
     struct Punto //equivalente a Point ma uso Point perchè Location è un Point
@@ -25,13 +25,14 @@ namespace Cubetti //TODO: USARE WASD E IJKL x muovere
         Random rand = new Random(Environment.TickCount);
         bool turno_gargamella = false;
         const int totMosse = 4;
-        int mosseRimanenti = totMosse;
+        int mosseRimanenti;
         public Form1()
         {
             InitializeComponent();
-            illuminaPunteggio();
             oggetti = new Panel[] { pnl_casetta, pnl_gargamella, pnl_player, pnl_albero1, pnl_albero2, pnl_albero3, pnl_albero4, pnl_albero5, pnl_albero6, pnl_albero7, pnl_albero8, pnl_albero9, pnl_albero10 }; //tutti gli oggetti (le collsioni le filtro dopo in base a .Tag)
+            illuminaPunteggio();
             spostaAlberi();
+            aggiornaMosse(totMosse);
         }
 
         private void aggiornaPunteggio(int delta, Panel target)
@@ -62,20 +63,28 @@ namespace Cubetti //TODO: USARE WASD E IJKL x muovere
             }
         }
 
-        private void sposta(int dx, int dy, Panel target) //qui volendo struct però
+        private void sposta(int dx, int dy, Panel target)
         {
             if ((target == pnl_player && turno_gargamella) || (target == pnl_gargamella && !turno_gargamella))
             {
                 return;
             }
+            bool turno_gargamella_precedente = turno_gargamella; //l'alternativa era impostare mosse a totmosse +1 come garavelli perchè poi fosse decrementato, ma non volevo copiare dai migliori
             target.Location = new Point(spostaX(dx, target), spostaY(dy, target));
-            mosseRimanenti--;
+            if (turno_gargamella_precedente == turno_gargamella) //decrementa le mosse solo se c'è non c'è stato un cambio di turno, altrimenti la fn è già stata chiamata
+                aggiornaMosse(mosseRimanenti - 1);
+        }
+        private void aggiornaMosse(int mosse)
+        {
+            mosseRimanenti = mosse;
             if (mosseRimanenti == 0)
             {
                 turno_gargamella = !turno_gargamella;
                 mosseRimanenti = totMosse;
                 illuminaPunteggio();
             }
+            (turno_gargamella ? lbl_mosse_gargamella : lbl_mosse_puffo).Text = "MOSSE: " + mosseRimanenti;
+            (!turno_gargamella ? lbl_mosse_gargamella : lbl_mosse_puffo).Text = "MOSSE: -"; //andava a capo e non si aggiornava visivamente, ho perso mezz'ora :(
         }
 
         private void spostaAlberi()
@@ -181,7 +190,7 @@ namespace Cubetti //TODO: USARE WASD E IJKL x muovere
             else if ((target == pnl_gargamella || target == pnl_player) && (string)collision.Tag == "ALBERO")
             {
                 turno_gargamella = !turno_gargamella;
-                mosseRimanenti = totMosse;
+                aggiornaMosse(totMosse);
                 illuminaPunteggio();
                 return true;
             }
@@ -277,7 +286,34 @@ namespace Cubetti //TODO: USARE WASD E IJKL x muovere
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            //qui
+            switch (e.KeyCode)
+            {
+                case Keys.W:
+                    btn_up_puffo.PerformClick();
+                    break;
+                case Keys.A:
+                    btn_left_puffo.PerformClick();
+                    break;
+                case Keys.S:
+                    btn_down_puffo.PerformClick();
+                    break;
+                case Keys.D:
+                    btn_right_puffo.PerformClick();
+                    break;
+                case Keys.I:
+                    btn_up_gargamella.PerformClick();
+                    break;
+                case Keys.J:
+                    btn_left_gargamella.PerformClick();
+                    break;
+                case Keys.K:
+                    btn_down_gargamella.PerformClick();
+                    break;
+                case Keys.L:
+                    btn_right_gargamella.PerformClick();
+                    break;
+            }
         }
+
     }
 }

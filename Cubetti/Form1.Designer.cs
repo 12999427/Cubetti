@@ -28,7 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+
+            this.KeyPreview = true; //questa è una soluzione per evitare che con un pulsante in focus, gli input vengano
+                                    //ricevuti da Form1. ho provato anche a impostare TapStop a false ma funziona finchè
+                                    //non si preme un pulsante col mouse
+
             this.pnl_main = new System.Windows.Forms.Panel();
+            this.lbl_mosse_gargamella = new System.Windows.Forms.Label();
             this.lbl_score_gargamella = new System.Windows.Forms.Label();
             this.controlli_gargamella = new System.Windows.Forms.TableLayoutPanel();
             this.btn_left_gargamella = new System.Windows.Forms.Button();
@@ -41,6 +47,7 @@
             this.btn_right_puffo = new System.Windows.Forms.Button();
             this.btn_down_puffo = new System.Windows.Forms.Button();
             this.lbl_score_puffo = new System.Windows.Forms.Label();
+            this.lbl_mosse_puffo = new System.Windows.Forms.Label();
             this.pnl_game = new System.Windows.Forms.Panel();
             this.pnl_albero8 = new System.Windows.Forms.Panel();
             this.pnl_albero9 = new System.Windows.Forms.Panel();
@@ -66,21 +73,34 @@
             this.pnl_main.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnl_main.Controls.Add(this.lbl_mosse_gargamella);
             this.pnl_main.Controls.Add(this.lbl_score_gargamella);
             this.pnl_main.Controls.Add(this.controlli_gargamella);
             this.pnl_main.Controls.Add(this.controlli_puffo);
             this.pnl_main.Controls.Add(this.lbl_score_puffo);
+            this.pnl_main.Controls.Add(this.lbl_mosse_puffo);
             this.pnl_main.Controls.Add(this.pnl_game);
             this.pnl_main.Location = new System.Drawing.Point(12, 12);
             this.pnl_main.Name = "pnl_main";
-            this.pnl_main.Size = new System.Drawing.Size(920, 453);
+            this.pnl_main.Size = new System.Drawing.Size(978, 496);
             this.pnl_main.TabIndex = 0;
+            // 
+            // lbl_mosse_gargamella
+            // 
+            this.lbl_mosse_gargamella.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_mosse_gargamella.Font = new System.Drawing.Font("Ink Free", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_mosse_gargamella.Location = new System.Drawing.Point(796, 79);
+            this.lbl_mosse_gargamella.Name = "lbl_mosse_gargamella";
+            this.lbl_mosse_gargamella.Size = new System.Drawing.Size(182, 30);
+            this.lbl_mosse_gargamella.TabIndex = 10;
+            this.lbl_mosse_gargamella.Text = "MOSSE: -";
+            this.lbl_mosse_gargamella.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lbl_score_gargamella
             // 
             this.lbl_score_gargamella.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_score_gargamella.Font = new System.Drawing.Font("Ink Free", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_score_gargamella.Location = new System.Drawing.Point(737, 0);
+            this.lbl_score_gargamella.Location = new System.Drawing.Point(795, 0);
             this.lbl_score_gargamella.Name = "lbl_score_gargamella";
             this.lbl_score_gargamella.Size = new System.Drawing.Size(192, 79);
             this.lbl_score_gargamella.TabIndex = 8;
@@ -99,22 +119,23 @@
             this.controlli_gargamella.Controls.Add(this.btn_up_gargamella, 1, 0);
             this.controlli_gargamella.Controls.Add(this.btn_right_gargamella, 2, 1);
             this.controlli_gargamella.Controls.Add(this.btn_down_gargamella, 1, 2);
-            this.controlli_gargamella.Location = new System.Drawing.Point(737, 118);
+            this.controlli_gargamella.Location = new System.Drawing.Point(795, 118);
             this.controlli_gargamella.Name = "controlli_gargamella";
             this.controlli_gargamella.RowCount = 3;
             this.controlli_gargamella.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.controlli_gargamella.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.controlli_gargamella.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.controlli_gargamella.Size = new System.Drawing.Size(180, 204);
+            this.controlli_gargamella.Size = new System.Drawing.Size(180, 247);
             this.controlli_gargamella.TabIndex = 7;
             // 
             // btn_left_gargamella
             // 
             this.btn_left_gargamella.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_left_gargamella.Location = new System.Drawing.Point(3, 71);
+            this.btn_left_gargamella.Location = new System.Drawing.Point(3, 85);
             this.btn_left_gargamella.Name = "btn_left_gargamella";
             this.btn_left_gargamella.Size = new System.Drawing.Size(54, 48);
             this.btn_left_gargamella.TabIndex = 1;
+            this.btn_left_gargamella.TabStop = false;
             this.btn_left_gargamella.Text = "<";
             this.btn_left_gargamella.UseVisualStyleBackColor = true;
             this.btn_left_gargamella.Click += new System.EventHandler(this.btn_left_gargamella_Click);
@@ -126,6 +147,7 @@
             this.btn_up_gargamella.Name = "btn_up_gargamella";
             this.btn_up_gargamella.Size = new System.Drawing.Size(54, 48);
             this.btn_up_gargamella.TabIndex = 0;
+            this.btn_up_gargamella.TabStop = false;
             this.btn_up_gargamella.Text = "^";
             this.btn_up_gargamella.UseVisualStyleBackColor = true;
             this.btn_up_gargamella.Click += new System.EventHandler(this.btn_up_gargamella_Click);
@@ -133,10 +155,11 @@
             // btn_right_gargamella
             // 
             this.btn_right_gargamella.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_right_gargamella.Location = new System.Drawing.Point(123, 71);
+            this.btn_right_gargamella.Location = new System.Drawing.Point(123, 85);
             this.btn_right_gargamella.Name = "btn_right_gargamella";
             this.btn_right_gargamella.Size = new System.Drawing.Size(54, 48);
             this.btn_right_gargamella.TabIndex = 2;
+            this.btn_right_gargamella.TabStop = false;
             this.btn_right_gargamella.Text = ">";
             this.btn_right_gargamella.UseVisualStyleBackColor = true;
             this.btn_right_gargamella.Click += new System.EventHandler(this.bhtn_right_gargamella_Click);
@@ -144,10 +167,11 @@
             // btn_down_gargamella
             // 
             this.btn_down_gargamella.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_down_gargamella.Location = new System.Drawing.Point(63, 139);
+            this.btn_down_gargamella.Location = new System.Drawing.Point(63, 167);
             this.btn_down_gargamella.Name = "btn_down_gargamella";
             this.btn_down_gargamella.Size = new System.Drawing.Size(54, 48);
             this.btn_down_gargamella.TabIndex = 3;
+            this.btn_down_gargamella.TabStop = false;
             this.btn_down_gargamella.Text = "v";
             this.btn_down_gargamella.UseVisualStyleBackColor = true;
             this.btn_down_gargamella.Click += new System.EventHandler(this.btn_down_gargamella_Click);
@@ -170,16 +194,17 @@
             this.controlli_puffo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.controlli_puffo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.controlli_puffo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.controlli_puffo.Size = new System.Drawing.Size(180, 204);
+            this.controlli_puffo.Size = new System.Drawing.Size(180, 247);
             this.controlli_puffo.TabIndex = 6;
             // 
             // btn_left_puffo
             // 
             this.btn_left_puffo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_left_puffo.Location = new System.Drawing.Point(3, 71);
+            this.btn_left_puffo.Location = new System.Drawing.Point(3, 85);
             this.btn_left_puffo.Name = "btn_left_puffo";
             this.btn_left_puffo.Size = new System.Drawing.Size(54, 48);
             this.btn_left_puffo.TabIndex = 1;
+            this.btn_left_puffo.TabStop = false;
             this.btn_left_puffo.Text = "<";
             this.btn_left_puffo.UseVisualStyleBackColor = true;
             this.btn_left_puffo.Click += new System.EventHandler(this.btn_left_puffo_Click);
@@ -191,6 +216,7 @@
             this.btn_up_puffo.Name = "btn_up_puffo";
             this.btn_up_puffo.Size = new System.Drawing.Size(54, 48);
             this.btn_up_puffo.TabIndex = 0;
+            this.btn_up_puffo.TabStop = false;
             this.btn_up_puffo.Text = "^";
             this.btn_up_puffo.UseVisualStyleBackColor = true;
             this.btn_up_puffo.Click += new System.EventHandler(this.btn_up_puffo_Click);
@@ -198,10 +224,11 @@
             // btn_right_puffo
             // 
             this.btn_right_puffo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_right_puffo.Location = new System.Drawing.Point(123, 71);
+            this.btn_right_puffo.Location = new System.Drawing.Point(123, 85);
             this.btn_right_puffo.Name = "btn_right_puffo";
             this.btn_right_puffo.Size = new System.Drawing.Size(54, 48);
             this.btn_right_puffo.TabIndex = 2;
+            this.btn_right_puffo.TabStop = false;
             this.btn_right_puffo.Text = ">";
             this.btn_right_puffo.UseVisualStyleBackColor = true;
             this.btn_right_puffo.Click += new System.EventHandler(this.btn_right_puffo_Click);
@@ -209,10 +236,11 @@
             // btn_down_puffo
             // 
             this.btn_down_puffo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_down_puffo.Location = new System.Drawing.Point(63, 139);
+            this.btn_down_puffo.Location = new System.Drawing.Point(63, 167);
             this.btn_down_puffo.Name = "btn_down_puffo";
             this.btn_down_puffo.Size = new System.Drawing.Size(54, 48);
             this.btn_down_puffo.TabIndex = 3;
+            this.btn_down_puffo.TabStop = false;
             this.btn_down_puffo.Text = "v";
             this.btn_down_puffo.UseVisualStyleBackColor = true;
             this.btn_down_puffo.Click += new System.EventHandler(this.btn_down_puffo_Click);
@@ -222,10 +250,20 @@
             this.lbl_score_puffo.Font = new System.Drawing.Font("Ink Free", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_score_puffo.Location = new System.Drawing.Point(0, 0);
             this.lbl_score_puffo.Name = "lbl_score_puffo";
-            this.lbl_score_puffo.Size = new System.Drawing.Size(182, 91);
+            this.lbl_score_puffo.Size = new System.Drawing.Size(182, 79);
             this.lbl_score_puffo.TabIndex = 5;
             this.lbl_score_puffo.Text = "PUFFO PUNTEGGIO: 0";
             this.lbl_score_puffo.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // lbl_mosse_puffo
+            // 
+            this.lbl_mosse_puffo.Font = new System.Drawing.Font("Ink Free", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_mosse_puffo.Location = new System.Drawing.Point(3, 91);
+            this.lbl_mosse_puffo.Name = "lbl_mosse_puffo";
+            this.lbl_mosse_puffo.Size = new System.Drawing.Size(182, 30);
+            this.lbl_mosse_puffo.TabIndex = 9;
+            this.lbl_mosse_puffo.Text = "MOSSasdasdE: -";
+            this.lbl_mosse_puffo.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // pnl_game
             // 
@@ -244,7 +282,7 @@
             this.pnl_game.Controls.Add(this.pnl_gargamella);
             this.pnl_game.Controls.Add(this.pnl_casetta);
             this.pnl_game.Controls.Add(this.pnl_player);
-            this.pnl_game.Location = new System.Drawing.Point(190, 3);
+            this.pnl_game.Location = new System.Drawing.Point(219, 3);
             this.pnl_game.Name = "pnl_game";
             this.pnl_game.Size = new System.Drawing.Size(540, 432);
             this.pnl_game.TabIndex = 4;
@@ -396,7 +434,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(944, 477);
+            this.ClientSize = new System.Drawing.Size(1002, 520);
             this.Controls.Add(this.pnl_main);
             this.MinimumSize = new System.Drawing.Size(960, 516);
             this.Name = "Form1";
@@ -439,6 +477,8 @@
         private System.Windows.Forms.Panel pnl_albero9;
         private System.Windows.Forms.Panel pnl_albero10;
         private System.Windows.Forms.Panel pnl_albero7;
+        private System.Windows.Forms.Label lbl_mosse_puffo;
+        private System.Windows.Forms.Label lbl_mosse_gargamella;
     }
 }
 
